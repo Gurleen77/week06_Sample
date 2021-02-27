@@ -15,7 +15,7 @@ public class Student {
     private String cell_phone;
     private String email;
     private String department;
-    private float  marks[];
+    private float marks[];
     private float total_marks;
     private float percentage;
     private String grade; //A, A+
@@ -152,4 +152,21 @@ public class Student {
     public void setGrade(String grade) {
         this.grade = grade;
     }
+
+    public void calculateTotalMarks(){
+        float total = 0.0f;
+        for (int i=0; i<marks.length; i++) {
+            total += marks[i];
+        }
+
+        setTotal_marks(total);
+        }
+    public void calculatePercentage(){
+
+    }
+
+    public void calculateGrade(){
+
+    }
+
 }
