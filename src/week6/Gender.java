@@ -1,4 +1,7 @@
 package week6;
 
-public class Gender {
+public enum Gender {
+    Male,
+    Female,
+    Other
 }

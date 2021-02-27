@@ -3,81 +3,81 @@ package week6;
 import sun.util.calendar.BaseCalendar;
 
 import java.util.Date;
-
-public class Student {
-    private int student_id;
-    private String  first_name;
-    private String last_name;
-    private Date birth_date;
-    private Enum gender; //Enum
+public class Student
+{
+    private int studentId;
+    private String firstName;
+    private String lastName;
+    private Date birthDate;
+    private Gender gender; //Enum
     private String address;
-    private String  city;
-    private String cell_phone;
+    private String city;
+    private String pinCode;
+    private String cellPhone;
     private String email;
     private String department;
     private float marks[];
-    private float total_marks;
+    private float totalMarks;
     private float percentage;
-    private String grade; //A, A+
+    private String grade; //A+, A
 
-    public Student(int student_id, String first_name, String last_name, Date birth_date, Enum gender, String address, String city, String cell_phone, String email, String department, float[] marks, float total_marks, float percentage, String grade) {
-        this.student_id = student_id;
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.birth_date = birth_date;
+
+    public Student(int studentId) {
+        this.studentId = studentId;
+    }
+
+    public Student(int studentId, String firstName, String lastName, Date birthDate, Gender gender, String address, String city, String pinCode, String cellPhone, String email, String department, float[] marks) {
+        this.studentId = studentId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthDate = birthDate;
         this.gender = gender;
         this.address = address;
         this.city = city;
-        this.cell_phone = cell_phone;
+        this.pinCode = pinCode;
+        this.cellPhone = cellPhone;
         this.email = email;
         this.department = department;
         this.marks = marks;
-        this.total_marks = total_marks;
-        this.percentage = percentage;
-        this.grade = grade;
     }
 
-    public int getStudent_id() {
-        return student_id;
+    public int getStudentId() {
+        return studentId;
     }
 
-    public void setStudent_id(int student_id) {
-        this.student_id = student_id;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public String getFullName() {
+        return firstName + " " + lastName;
     }
 
-    public void setFullName(String last_name) {
-        this.last_name = last_name;
+    public Date getBirthDate() {
+        return birthDate;
     }
 
-    public Date getBirth_date() {
-        return birth_date;
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
     }
 
-    public void setBirth_date(Date birth_date) {
-        this.birth_date = birth_date;
-    }
-
-    public Enum getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(Enum gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 
@@ -97,12 +97,20 @@ public class Student {
         this.city = city;
     }
 
-    public String getCell_phone() {
-        return cell_phone;
+    public String getPinCode() {
+        return pinCode;
     }
 
-    public void setCell_phone(String cell_phone) {
-        this.cell_phone = cell_phone;
+    public void setPinCode(String pinCode) {
+        this.pinCode = pinCode;
+    }
+
+    public String getCellPhone() {
+        return cellPhone;
+    }
+
+    public void setCellPhone(String cellPhone) {
+        this.cellPhone = cellPhone;
     }
 
     public String getEmail() {
@@ -129,19 +137,19 @@ public class Student {
         this.marks = marks;
     }
 
-    public float getTotal_marks() {
-        return total_marks;
+    public float getTotalMarks() {
+        return totalMarks;
     }
 
-    public void setTotal_marks(float total_marks) {
-        this.total_marks = total_marks;
+    private void setTotalMarks(float totalMarks) {
+        this.totalMarks = totalMarks;
     }
 
     public float getPercentage() {
         return percentage;
     }
 
-    public void setPercentage(float percentage) {
+    private void setPercentage(float percentage) {
         this.percentage = percentage;
     }
 
@@ -149,24 +157,50 @@ public class Student {
         return grade;
     }
 
-    public void setGrade(String grade) {
+    private void setGrade(String grade) {
         this.grade = grade;
     }
 
     public void calculateTotalMarks(){
         float total = 0.0f;
-        for (int i=0; i<marks.length; i++) {
-            total += marks[i];
+        for (int i= 0; i<marks.length; i++) {
+            total +=marks[i];
         }
 
-        setTotal_marks(total);
+            setTotalMarks(total);
         }
-    public void calculatePercentage(){
-
+        public void calculatePercentage()
+        {
+        this.percentage = this.totalMarks/marks.length;
     }
-
-    public void calculateGrade(){
-
+    public void calculateGrade()
+    {
+        if(this.percentage>= 95.0){
+            this.grade = "A+";
+        }
+        if(this.percentage>= 87.0){
+            this.grade = "A";
+        }
+        if(this.percentage>= 77.0){
+            this.grade = "A-";
+        }
+        if(this.percentage>= 73.0){
+            this.grade = "B+";
+        }
+        if(this.percentage>= 70.0){
+            this.grade = "B-";
+        }
+        if(this.percentage>= 67.0){
+            this.grade = "B";
+        }
+        if(this.percentage>= 63.0){
+            this.grade = "C+";
+        }
+        if(this.percentage>= 60.0){
+            this.grade = "C";
+        }
+        if(this.percentage>= 57.0){
+            this.grade = "C-";
+        }
     }
-
 }
